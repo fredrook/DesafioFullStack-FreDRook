@@ -1,25 +1,24 @@
-import AppDataSource from "../../data-source"
-import Users from "../../entities/user.entity"
-import AppError from "../../Error/AppError"
-import { IUser } from "../../interfaces/user"
+import AppDataSource from "../../data-source";
+import Users from "../../Entities/User.Entity";
+import AppError from "../../Error/AppError";
+import { IUser } from "../../Interfaces/IUser";
 
 const retrieveUserService = async (userId: string): Promise<IUser> => {
-  const userRepository = AppDataSource.getRepository(Users)
+  const userRepository = AppDataSource.getRepository(Users);
   const findUser = await userRepository.findOne({
     where: {
       id: userId,
     },
     relations: {
-      address: true,
-      schedules: true,
+      contact: true,
     },
-  })
+  });
 
   if (!findUser) {
-    throw new AppError("User not found", 404)
+    throw new AppError("User not found", 404);
   }
 
-  return findUser
-}
+  return findUser;
+};
 
-export default retrieveUserService
+export default retrieveUserService;

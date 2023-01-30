@@ -1,50 +1,48 @@
-import * as bcrypt from "bcrypt"
-import AppDataSource from "../../data-source"
-import Addresses from "../../entities/address.entity"
-import Users from "../../entities/user.entity"
-import AppError from "../../Error/AppError"
-import { IUserRequest } from "../../interfaces/user"
+import * as bcrypt from "bcryptjs";
+import AppDataSource from "../../data-source";
+import Contact from "../../Entities/Contact.Entity";
+import Users from "../../Entities/User.Entity";
+import AppError from "../../Error/AppError";
+import { IUserRequest } from "../../Interfaces/IUser";
 
-const createUserService = async ({ name, email, age, password, CPF, sex, img, isAdmin, address }: IUserRequest): Promise<Users> => {
-  const userRepository = AppDataSource.getRepository(Users)
+const createUserService = async ({
+  fullName,
+  email,
+  password,
+  phoneNumber,
+  isAdmin,
+  contact,
+}: IUserRequest): Promise<Users> => {
+  const userRepository = AppDataSource.getRepository(Users);
 
-  const addressRepository = AppDataSource.getRepository(Addresses)
+  const ContactRepository = AppDataSource.getRepository(Contact);
 
-  const users = await userRepository.find()
+  const users = await userRepository.find();
 
-  const emailAlredyExists = users.find((user) => user.email === email)
+  const emailAlredyExists = users.find((user) => user.email === email);
 
   if (emailAlredyExists) {
-    throw new AppError("Email already exist")
+    throw new AppError("Email already exist");
   }
 
-  const cpfAlreadyExists = users.find((user) => user.CPF === CPF)
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-  if (cpfAlreadyExists) {
-    throw new AppError("CPF already exists")
-  }
+  const createdContact = ContactRepository.create(contact);
 
-  const hashedPassword = await bcrypt.hash(password, 10)
-
-  const createdAddress = addressRepository.create(address)
-
-  await addressRepository.save(createdAddress)
+  await ContactRepository.save(createdContact);
 
   const user = userRepository.create({
-    name,
+    fullName,
     email,
-    age,
     password: hashedPassword,
-    CPF,
-    sex,
-    img,
+    phoneNumber,
     isAdmin,
-    address: createdAddress,
-  })
+    contact: createdContact,
+  });
 
-  await userRepository.save(user)
+  await userRepository.save(user);
 
-  return user
-}
+  return user;
+};
 
-export default createUserService
+export default createUserService;

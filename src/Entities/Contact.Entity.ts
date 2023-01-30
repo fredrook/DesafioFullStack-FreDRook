@@ -6,17 +6,20 @@ class Contact {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-   @Column({ length: 200 })
+  @Column({ length: 200 })
   fullName: string;
 
   @Column()
   email: string;
 
-   @Column({ type: "integer" })
+  @Column({ type: "integer" })
   phoneNumber: number;
 
   @Column()
-  registrationDate: Date;
+  createdAt: Date;
+
+  @Column({ default: false })
+  isAdmin: boolean
 
   @ManyToOne(() => Users, { eager: true, nullable: true })
   user?: Users;
