@@ -1,29 +1,28 @@
-/* import { IAddressRequest, IAddressUpdate } from "../address" */
+import { IContactsRequest, IContactsUpdate } from "../Interfaces/IContacts";
+
+export interface IUserRequest {
+  fullName: string;
+  email: string;
+  password: string;
+  phoneNumber: number;
+  contact: IContactsRequest;
+  isAdmin?: boolean;
+}
 
 export interface IUser {
-  completeName: string;
+  fullName: string;
   email: string;
   phoneNumber: number;
   isAdmin: boolean;
   isActive: boolean;
-  registerDate: Date;
+  createdAt: Date;
   updatedAt: Date;
-  /* clientContacts: IAddressRequest */
-}
-export interface IUserRequest {
-  completeName: string;
-  email: string;
-  phoneNumber: number;
-  registerDate: Date;
-  /* clientContacts: IAddressRequest */
-  isAdmin?: boolean;
+  contact: IContactsRequest;
 }
 
 export interface IUserUpdate {
-  completeName?: string;
+  fullName?: string;
   email?: string;
   phoneNumber?: number;
-  registerDate?: string;
-  /* clientContacts?: IAddressRequest */
-  isAdmin?: boolean;
+  contact?: IContactsUpdate;
 }

@@ -1,41 +1,43 @@
-import AppDataSource from "../../data-source"
-import Addresses from "../../entities/address.entity"
-import Users from "../../entities/user.entity"
-import AppError from "../../Error/AppError"
-import { IUserUpdate } from "../../interfaces/user"
+import AppDataSource from "../../data-source";
+import Addresses from "../../Entities/Contact.Entity";
+import Users from "../../Entities/User.Entity";
+import AppError from "../../Error/AppError";
+import { IUserUpdate } from "../../Interfaces/IUser";
 
-const updateUserService = async ({ name, email, password, age, sex, img, address }: IUserUpdate, userId: string): Promise<Users> => {
-  const userRepository = AppDataSource.getRepository(Users)
-  const addressesRepository = AppDataSource.getRepository(Addresses)
-  const findUser = await userRepository.findOneBy({ id: userId })
-  const addresses = await addressesRepository.find()
+const updateUserService = async (
+  { fullName, email, phoneNumber, contact }: IUserUpdate,
+  userId: string
+): Promise<Users> => {
+  const userRepository = AppDataSource.getRepository(Users);
+  const contactRepository = AppDataSource.getRepository(Addresses);
+  const findUser = await userRepository.findOneBy({ id: userId });
+  const contacts = await contactRepository.find();
 
   if (!findUser) {
-    throw new AppError("User not found", 404)
+    throw new AppError("User not found", 404);
   }
 
-  const addressUser = addresses.find((foundAddress) => foundAddress.id === findUser.address.id)
+  const contactUser = contacts.find(
+    (foundAddress) => foundAddress.id === findUser.contact.id
+  );
 
   await userRepository.update(userId, {
-    name,
+    fullName,
     email,
-    password,
-    age,
-    sex,
-    img,
-  })
+    phoneNumber,
+    contact,
+  });
 
-  if (address) {
-    if (!addressUser) {
-      throw new AppError("Address not found", 404)
+  if (contact) {
+    if (!contactUser) {
+      throw new AppError("Address not found", 404);
     }
-    await addressesRepository.update(addressUser.id, {
-      city: address.city,
-      district: address.district,
-      number: address.number,
-      zipCode: address.zipCode,
-      state: address.state,
-    })
+    await contactRepository.update(contactUser.id, {
+      fullName: contact.fullName,
+      email: contact.email,
+      phoneNumber: contact.phoneNumber,
+      isAdmin: contact.isAdmin,
+    });
   }
 
   const user = await userRepository.findOne({
@@ -43,12 +45,11 @@ const updateUserService = async ({ name, email, password, age, sex, img, address
       id: userId,
     },
     relations: {
-      address: true,
-      schedules: true,
+      contact: true,
     },
-  })
+  });
 
-  return user!
-}
+  return user!;
+};
 
-export default updateUserService
+export default updateUserService;

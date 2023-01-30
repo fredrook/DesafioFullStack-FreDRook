@@ -21,7 +21,7 @@ class Users {
   phoneNumber: number;
 
   @Column()
-  registrationDate: Date;
+  createdAt: Date;
     
   @UpdateDateColumn()
   updatedAt: Date
@@ -33,7 +33,7 @@ class Users {
   isActive: boolean
     
   @OneToMany(() => Contact, (contact) => contact.user)
-  contact: Contact[]
+  contact: Contact
 }
 
 export default Users;

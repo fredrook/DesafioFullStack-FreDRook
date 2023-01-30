@@ -1,23 +1,27 @@
-import { Request, Response } from "express"
-import createUserService from "../../services/users/createUser.service"
-import { instanceToPlain } from "class-transformer"
-import { IUserRequest } from "../../interfaces/user"
+import { Request, Response } from "express";
+import createUserService from "../../Services/users/createUser.service";
+import { instanceToPlain } from "class-transformer";
+import { IUserRequest } from "../../Interfaces/IUser";
 
 const creteUserController = async (req: Request, res: Response) => {
-  const { name, email, age, CPF, sex, img, address, password, isAdmin }: IUserRequest = req.body
-  const newUser = await createUserService({
-    name,
+  const {
+    fullName,
     email,
     password,
-    age,
-    CPF,
-    sex,
-    img,
-    address,
+    phoneNumber,
     isAdmin,
-  })
+    contact,
+  }: IUserRequest = req.body;
+  const newUser = await createUserService({
+    fullName,
+    email,
+    password,
+    phoneNumber,
+    contact,
+    isAdmin,
+  });
 
-  return res.status(201).send(instanceToPlain(newUser))
-}
+  return res.status(201).send(instanceToPlain(newUser));
+};
 
-export default creteUserController
+export default creteUserController;
