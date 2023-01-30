@@ -5,9 +5,9 @@ declare global {
     interface Request {
       user: {
         id: string
-        crm: string
-        isAdmin: boolean
-      }
+        isAdm: boolean
+        email: string
+    }
     }
   }
 }
