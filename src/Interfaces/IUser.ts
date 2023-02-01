@@ -5,7 +5,7 @@ export interface IUserRequest {
   email: string;
   password: string;
   phoneNumber: number;
-  contact: IContactsRequest;
+  contact?: IContactsRequest;
   isAdmin?: boolean;
 }
 
@@ -17,7 +17,7 @@ export interface IUser {
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
-  contact: IContactsRequest;
+  contact?: IContactsRequest[];
 }
 
 export interface IUserUpdate {

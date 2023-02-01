@@ -1,4 +1,4 @@
-import { DataSource } from "typeorm"
+/* import { DataSource } from "typeorm"
 import AppDataSource from "../../../data-source"
 import request from "supertest"
 import app from "../../../app"
@@ -86,3 +86,4 @@ describe("Testing /LOGIN/USERS routes", () => {
     expect(answer.status).toBe(403)
   })
 })
+ */

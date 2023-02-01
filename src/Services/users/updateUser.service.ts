@@ -17,18 +17,17 @@ const updateUserService = async (
     throw new AppError("User not found", 404);
   }
 
-  const contactUser = contacts.find(
+ /*  const contactUser = contacts.find(
     (foundAddress) => foundAddress.id === findUser.contact.id
   );
-
+ */
   await userRepository.update(userId, {
     fullName,
     email,
     phoneNumber,
-    contact,
   });
 
-  if (contact) {
+ /*  if (contact) {
     if (!contactUser) {
       throw new AppError("Address not found", 404);
     }
@@ -38,7 +37,7 @@ const updateUserService = async (
       phoneNumber: contact.phoneNumber,
       isAdmin: contact.isAdmin,
     });
-  }
+  } */
 
   const user = await userRepository.findOne({
     where: {

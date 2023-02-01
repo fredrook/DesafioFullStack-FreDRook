@@ -1,9 +1,10 @@
 export interface IContactsRequest {
+  id: string
   fullName: string;
   email: string;
   phoneNumber: number;
-  createdAt: Date;
-  isAdmin: boolean;
+  createdAt?: Date;
+  userId?: string;
 }
 
 export interface IContactsUpdate {
@@ -11,5 +12,5 @@ export interface IContactsUpdate {
   email?: string;
   phoneNumber?: number;
   createdAt?: Date;
-  isAdmin?: boolean;
+  userId?: string
 }

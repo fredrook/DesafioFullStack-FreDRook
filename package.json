@@ -17,10 +17,12 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@types/supertest": "^2.0.12",
     "@types/uuid": "^9.0.0",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
     "class-transformer": "^0.5.1",
     "cross-env": "^7.0.3",
     "docker-compose": "^0.23.18",
@@ -30,6 +32,8 @@
     "jsonwebtoken": "^9.0.0",
     "pg": "^8.9.0",
     "reflect-metadata": "^0.1.13",
+    "swagger-autogen": "^2.23.0",
+    "swagger-ui-express": "^4.6.0",
     "typeorm": "^0.3.11",
     "uuid": "^9.0.0",
     "yup": "^0.32.11"

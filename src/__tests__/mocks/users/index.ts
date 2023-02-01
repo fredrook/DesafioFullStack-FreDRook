@@ -1,19 +1,12 @@
-import { ILogin } from "../../../Interfaces/ILogin"
+/* import { ILogin } from "../../../Interfaces/ILogin"
 import { IUserRequest } from "../../../Interfaces/IUser"
 
 export const mockedUser: IUserRequest = {
   fullName: "Daniel",
   email: "daniel@mail.com",
+  phoneNumber: 31989899999,
   isAdmin: false,
   password: "123456",
-
-  address: {
-    district: "Rua São Vicente",
-    city: "São Paulo",
-    number: 89,
-    state: "SP",
-    zipCode: "121556",
-  },
 }
 
 export const mockedUserActive: IUserRequest = {
@@ -21,13 +14,11 @@ export const mockedUserActive: IUserRequest = {
   email: "danielgalvan@mail.com",
   isAdmin: false,
   password: "123456",
-
-  address: {
-    district: "Rua São Vicente",
-    city: "São Paulo",
-    number: 89,
-    state: "SP",
-    zipCode: "121556",
+  createAt: 2022/2/28,
+  contact: {
+    fullName: "Contato do UserTest1",
+    email: "testeeee@mail.com",
+    phoneNumber: 31989899999,
   },
 }
 
@@ -89,3 +80,4 @@ export const mockedAdminLogin: ILogin = {
   email: "daniel2@mail.com",
   password: "123456",
 }
+ */

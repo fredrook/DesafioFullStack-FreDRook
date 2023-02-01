@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from "typeorm";
 import Users from "./User.Entity";
 
 @Entity("contact")
 class Contact {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn("increment")
   id: string;
 
   @Column({ length: 200 })
@@ -15,13 +15,10 @@ class Contact {
   @Column({ type: "integer" })
   phoneNumber: number;
 
-  @Column()
-  createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date
 
-  @Column({ default: false })
-  isAdmin: boolean
-
-  @ManyToOne(() => Users, { eager: true, nullable: true })
+  @ManyToOne(() => Users, { nullable: true })
   user?: Users;
 }
 

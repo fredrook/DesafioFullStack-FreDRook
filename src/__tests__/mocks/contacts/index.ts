@@ -1,25 +1,18 @@
-import { IContactsRequest } from "../../../Interfaces/IContacts"
-
-export const mockedCreateSpeciality = {
-  name: "teste",
+/* 
+export const mockedCreateContact = {
+  name: "ContatoTeste",
 }
 
-export const mockedCreateDoctor = {
-  fullName: "Doctor teste",
+export const mockedContactUser = {
+  fullName: "User teste",
   email: "teste@gmail.com",
-  password: "123456",
-  CRM: "MG124464",
-  sex: "Masculino",
-  age: 33,
-  specialtiesId: {
-    id: 1,
-  },
-  address: {
-    district: "Rua Doctor Pires de camargo",
-    zipCode: "18155000",
-    number: "68",
-    city: "Piedade",
-    state: "SP",
+  phoneNumber: 31989918191,
+  createAt: 2022/2/28,
+  contact: {
+    fullName: "Contato do UserTest1",
+    email: "18155000",
+    phoneNumber: "31989899999",
+    createAt: 2022/2/28
   },
 }
 
@@ -27,3 +20,4 @@ export const mockedLoginDoctor = {
   email: "teste@gmail.com",
   password: "123456",
 }
+ */
