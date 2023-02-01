@@ -7,15 +7,13 @@ import verifyUpdateRequestUserMiddleware from "../Middlewares/verifyUpdateReques
 
 import creteUserController from "../Controllers/users/createUser.controller";
 import listAllUsersController from "../Controllers/users/listAllUsers.controller";
-import retrieveUserController from "../Controllers/users/retrieveUser.controller";
 import updateUserController from "../Controllers/users/updateUser.controller";
 import disableUserController from "../Controllers/users/disableUser.constroller";
 
 const userRoutes = Router();
 
 userRoutes.post("", creteUserController);
-userRoutes.get("", authMiddleware, isAdmMiddleware, listAllUsersController);
-userRoutes.get("/profile", authMiddleware, retrieveUserController);
+userRoutes.get("", authMiddleware, listAllUsersController);
 userRoutes.patch(
   "/:id",
   authMiddleware,

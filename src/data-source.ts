@@ -10,7 +10,7 @@ const AppDataSource = new DataSource(
         type: "sqlite",
         database: ":memory:",
         synchronize: true,
-        entities: ["src/entities/*.ts"],
+        entities: ["src/Entities/*.ts"],
       }
     : {
         type: "postgres",
@@ -22,7 +22,7 @@ const AppDataSource = new DataSource(
           : false,
         synchronize: false,
         logging: isProduction ? false : true,
-        entities: [path.join(__dirname, "./entities/*.{js,ts}")],
+        entities: [path.join(__dirname, "./Entities/*.{js,ts}")],
         migrations: [path.join(__dirname, "./migrations/*.{js,ts}")],
       }
 );

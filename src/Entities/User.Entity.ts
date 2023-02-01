@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, UpdateDateColumn, OneToMany, CreateDateColumn } from "typeorm";
 import { Exclude } from "class-transformer";
 import Contact from "./Contact.Entity"
 
@@ -20,8 +20,8 @@ class Users {
   @Column({ type: "integer" })
   phoneNumber: number;
 
-  @Column()
-  createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date
     
   @UpdateDateColumn()
   updatedAt: Date
@@ -33,7 +33,8 @@ class Users {
   isActive: boolean
     
   @OneToMany(() => Contact, (contact) => contact.user)
-  contact: Contact
+  @Exclude()
+  contact: Contact[]
 }
 
 export default Users;
