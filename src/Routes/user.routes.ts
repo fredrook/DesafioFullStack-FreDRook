@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import isOwnerMiddleware from "../Middlewares/isOwner.middleware";
 import authMiddleware from "../Middlewares/auth.middleware";
-import isAdmMiddleware from "../Middlewares/isAdm.middleware";
+/* import isAdmMiddleware from "../Middlewares/isAdm.middleware"; */
 import verifyUpdateRequestUserMiddleware from "../Middlewares/verifyUpdateRequest.middleware";
 
 import creteUserController from "../Controllers/users/createUser.controller";
@@ -13,7 +13,7 @@ import disableUserController from "../Controllers/users/disableUser.constroller"
 const userRoutes = Router();
 
 userRoutes.post("", creteUserController);
-userRoutes.get("", authMiddleware, listAllUsersController);
+userRoutes.get("", /* authMiddleware, */ listAllUsersController);
 userRoutes.patch(
   "/:id",
   authMiddleware,
