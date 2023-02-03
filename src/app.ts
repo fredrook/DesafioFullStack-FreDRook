@@ -6,8 +6,10 @@ import userRoutes from "./Routes/user.routes";
 import loginRouter from "./Routes/login.routes";
 import contactsRoutes from "./Routes/contacts.routes";
 
+var cors = require('cors')
+
 const app = express();
-app.use(express.json());
+app.use(express.json(cors));
 
 app.use("/users", userRoutes);
 app.use("/login", loginRouter);
