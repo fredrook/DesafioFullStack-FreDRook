@@ -9,7 +9,6 @@ const creteUserController = async (req: Request, res: Response) => {
     email,
     password,
     phoneNumber,
-    isAdmin,
     contact,
   }: IUserRequest = req.body;
   const newUser = await createUserService({
@@ -18,7 +17,6 @@ const creteUserController = async (req: Request, res: Response) => {
     password,
     phoneNumber,
     contact,
-    isAdmin,
   });
 
   return res.status(201).send(instanceToPlain(newUser));
