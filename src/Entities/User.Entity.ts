@@ -26,7 +26,7 @@ class Users {
   @UpdateDateColumn()
   updatedAt: Date
     
-  @Column({ default: false })
+  @Column({ default: true })
   isAdmin: boolean
 
   @Column({ default: true })
