@@ -12,9 +12,9 @@ var app = express()
 
 app.use(cors);
 
-app.use("/users", userRoutes);
-app.use("/login", loginRouter);
-app.use("/contacts", contactsRoutes)
+app.use("/users", cors(), userRoutes);
+app.use("/login", cors(), loginRouter);
+app.use("/contacts", cors(), contactsRoutes)
 
 app.use(handleErrorMiddleware);
 
