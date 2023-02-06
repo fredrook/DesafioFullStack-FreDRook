@@ -1,5 +1,5 @@
 import { Router } from "express"
-import createSpecialtyController from "../Controllers/Contacts/createContacts.controller"
+import createContactController from "../Controllers/Contacts/createContacts.controller"
 import getContactsController from "../Controllers/Contacts/getContacts.controller"
 import listContactsByIdController from "../Controllers/Contacts/listContactsById.controller"
 
@@ -8,7 +8,7 @@ import isAdmMiddleware from "../Middlewares/isAdm.middleware"
 
 const contactsRoutes = Router()
 
-contactsRoutes.post("", createSpecialtyController, authMiddleware, isAdmMiddleware)
+contactsRoutes.post("", createContactController/* , authMiddleware, isAdmMiddleware */)
 contactsRoutes.get("", getContactsController)
 contactsRoutes.get("/:id/doctors", listContactsByIdController)
 
