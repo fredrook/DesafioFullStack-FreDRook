@@ -12,7 +12,6 @@ const createUserService = async ({
   phoneNumber,
 }: IUserRequest): Promise<Users> => {
   const userRepository = AppDataSource.getRepository(Users);
-
   
   const users = await userRepository.find();
   
@@ -29,12 +28,16 @@ const createUserService = async ({
     email,
     password: hashedPassword,
     phoneNumber,
-
   });
 
   await userRepository.save(user);
 
-  return user;
+  const catchUser = await userRepository.findOne({
+    where: { id: user.id }, 
+    relations: {contact: true}
+  })
+
+  return catchUser!;
 };
 
 export default createUserService;

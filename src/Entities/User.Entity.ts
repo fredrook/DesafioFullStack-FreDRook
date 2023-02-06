@@ -32,8 +32,7 @@ class Users {
   @Column({ default: true })
   isActive: boolean
     
-  @OneToMany(() => Contact, (contact) => contact.user)
-  @Exclude()
+  @OneToMany(() => Contact, (contact) => contact.user, {eager: true})
   contact: Contact[]
 }
 

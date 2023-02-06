@@ -17,7 +17,7 @@ export interface IUser {
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
-  contact?: IContactsRequest[];
+  contact: [];
 }
 
 export interface IUserUpdate {
