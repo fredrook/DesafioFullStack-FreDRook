@@ -3,8 +3,8 @@ import createContactController from "../Controllers/Contacts/createContacts.cont
 import getContactsController from "../Controllers/Contacts/getContacts.controller"
 import listContactsByIdController from "../Controllers/Contacts/listContactsById.controller"
 
-import authMiddleware from "../Middlewares/auth.middleware"
-import isAdmMiddleware from "../Middlewares/isAdm.middleware"
+/* import authMiddleware from "../Middlewares/auth.middleware"
+import isAdmMiddleware from "../Middlewares/isAdm.middleware" */
 
 const contactsRoutes = Router()
 
