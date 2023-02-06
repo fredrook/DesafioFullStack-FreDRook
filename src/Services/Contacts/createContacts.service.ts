@@ -4,20 +4,20 @@ import Users from "../../Entities/User.Entity"
 import AppError from "../../Error/AppError"
 import { IContactsRequest } from "../../Interfaces/IContacts"
 
-const createContactService = async ({ fullName, email, phoneNumber, userId }: IContactsRequest) => {
+const createContactService = async ({ fullName, email, phoneNumber, user }: IContactsRequest) => {
   const contactRepository = AppDataSource.getRepository(Contact)
 
   const contacts = await contactRepository.find()
 
-  const nameAlreadyExists = contacts.find((contacts) => contacts.email === email)
+  const idlreadyExists = contacts.find((contacts) => contacts.id === user)
 
-  if (nameAlreadyExists) {
+  if (idlreadyExists) {
     throw new AppError("Contact already exists")
   }
   const userRepository = AppDataSource.getRepository(Users);
 
   const findUser = await userRepository.findOneBy({
-    id: userId
+    id: user
   });
 
   if (!findUser) {

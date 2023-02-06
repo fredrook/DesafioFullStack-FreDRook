@@ -4,7 +4,7 @@ export interface IContactsRequest {
   email: string;
   phoneNumber: number;
   createdAt?: Date;
-  userId?: string;
+  user?: string;
 }
 
 export interface IContactsUpdate {
