@@ -13,7 +13,7 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/User" },
+              "schema": { "$ref": "#/components/schemas/Userz" },
               "examples": {
                 "value": {
                   "fullName": "Frederico Rook",
@@ -38,7 +38,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/users"
+                  "$ref": "#/components/schemas/Userz"
                 }
               }
             }
@@ -49,7 +49,7 @@
   },
   "components": {
     "schemas": {
-      "User": {
+      "Userz": {
         "type": "object",
         "properties": {
           "fullName": {
