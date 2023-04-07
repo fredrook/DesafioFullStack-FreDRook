@@ -1,5 +1,5 @@
 {
-  "openapi": "4.6.2",
+  "openapi": "3.0.0",
   "info": {
     "title": "API Teste Sossego",
     "version": "1.0.0"
@@ -8,7 +8,7 @@
     "post": {
       "summary": "Cadastro de Usúario",
       "tags": ["Usuarios"],
-      "security": [{"bearerAuth": []}],
+      "security": [{ "bearerAuth": [] }],
       "requestBody": {
         "content": {
           "application/json": {
@@ -66,11 +66,11 @@
       }
     },
     "securitySchemes": {
-        "bearerAuth": {
-            "type" : "http",
-            "scheme": "bearer",
-            "bearerFormat": "JWT"
-        }
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
   }
 }
