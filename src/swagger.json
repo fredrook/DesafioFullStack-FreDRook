@@ -5,37 +5,39 @@
     "version": "1.0.0"
   },
   "paths": {
-    "post": {
-      "summary": "Cadastro de Usúario",
-      "tags": ["Usuarios"],
-      "security": [{ "bearerAuth": [] }],
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": { "$ref": "#/components/schemas/users" },
-            "examples": {
-              "fullName": "Frederico Rook",
-              "email": "rook@mail.com",
-              "password": "A123456*",
-              "phoneNumber": "31989998888"
-            }
-          }
-        }
-      },
-      "responses": {
-        "401:": {
-          "description": "Unauthorized"
-        },
-        "400:": {
-          "description": "User Already Exists"
-        },
-        "201:": {
-          "description": "OK",
+    "/users": {
+      "post": {
+        "summary": "Cadastro de Usúario",
+        "tags": ["Usuarios"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#/components/schemas/users"
+              "schema": { "$ref": "#/components/schemas/users" },
+              "examples": {
+                "fullName": "Frederico Rook",
+                "email": "rook@mail.com",
+                "password": "A123456*",
+                "phoneNumber": "31989998888"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401:": {
+            "description": "Unauthorized"
+          },
+          "400:": {
+            "description": "User Already Exists"
+          },
+          "201:": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/users"
+                }
               }
             }
           }
