@@ -12,7 +12,7 @@
       "requestBody": {
         "content": {
           "application/json": {
-            "schema": { "$ref": "#/components/schemas/Users" },
+            "schema": { "$ref": "#/components/schemas/users" },
             "examples": {
               "fullName": "Frederico Rook",
               "email": "rook@mail.com",
@@ -35,9 +35,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "itens": {
-                  "$ref": "#/components/schemas/Users"
-                }
+                "$ref": "#/components/schemas/users"
               }
             }
           }
@@ -47,7 +45,7 @@
   },
   "components": {
     "schemas": {
-      "Users": {
+      "users": {
         "type": "object",
         "properties": {
           "fullName": {
