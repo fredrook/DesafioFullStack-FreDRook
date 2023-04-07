@@ -12,17 +12,17 @@ const createUserService = async ({
   phoneNumber,
 }: IUserRequest): Promise<Users> => {
   const userRepository = AppDataSource.getRepository(Users);
-  
+
   const users = await userRepository.find();
-  
+
   const emailAlredyExists = users.find((user) => user.email === email);
-  
+
   if (emailAlredyExists) {
     throw new AppError("Email already exist");
   }
-  
+
   const hashedPassword = await bcrypt.hash(password, 10);
-  
+
   const user = userRepository.create({
     fullName,
     email,
@@ -32,12 +32,13 @@ const createUserService = async ({
 
   await userRepository.save(user);
 
-  const catchUser = await userRepository.findOne({
-    where: { id: user.id }, 
-    relations: {contact: true}
-  })
+  /*   const catchUser = await userRepository.findOne({
+    where: { id: user.id },
+    relations: { contact: true },
+  }); */
 
-  return catchUser!;
+  /* return catchUser!; */
+  return user;
 };
 
 export default createUserService;
