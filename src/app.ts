@@ -15,9 +15,9 @@ app.use(express.json());
 
 app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-/* app.use("/users", userRoutes);
+app.use("/users", userRoutes);
 app.use("/login", loginRouter);
-app.use("/contacts", contactsRoutes); */
+app.use("/contacts", contactsRoutes);
 
 app.use(handleErrorMiddleware);
 
