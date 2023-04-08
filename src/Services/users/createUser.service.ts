@@ -32,13 +32,12 @@ const createUserService = async ({
 
   await userRepository.save(user);
 
-  /*   const catchUser = await userRepository.findOne({
+  const catchUser = await userRepository.findOne({
     where: { id: user.id },
     relations: { contact: true },
-  }); */
+  });
 
-  /* return catchUser!; */
-  return user;
+  return catchUser!;
 };
 
 export default createUserService;
